@@ -5,6 +5,8 @@ import fr.rakambda.progressbar.impl.ParallelizableTest;
 import org.junit.jupiter.api.Test;
 import java.util.concurrent.atomic.AtomicLong;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 @ParallelizableTest
 class CumulativeProgressBarTest extends BaseProgressBarTest<CumulativeProgressBar>{
 	private static final int END_VALUE = 10;
@@ -59,6 +61,21 @@ class CumulativeProgressBarTest extends BaseProgressBarTest<CumulativeProgressBa
 		assertThat(tested.getStart()).isEqualTo(0);
 		assertThat(tested.getCurrent()).isEqualTo(2 * END_VALUE);
 		assertThat(tested.getEnd()).isEqualTo(2 * END_VALUE);
+	}
+	
+	@Test
+	void cannotSetStart(){
+		assertThatThrownBy(() -> getProgressBar().setStart(1)).isInstanceOf(UnsupportedOperationException.class);
+	}
+	
+	@Test
+	void cannotSetCurrent(){
+		assertThatThrownBy(() -> getProgressBar().setCurrent(1)).isInstanceOf(UnsupportedOperationException.class);
+	}
+	
+	@Test
+	void cannotSetEnd(){
+		assertThatThrownBy(() -> getProgressBar().setEnd(1)).isInstanceOf(UnsupportedOperationException.class);
 	}
 	
 	private IProgressBar generateBar(long progress){

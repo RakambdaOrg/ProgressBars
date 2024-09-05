@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   build:
+    name: Build & Test
     uses: RakambdaOrg/rakambda-github-workflows/.github/workflows/gradle-build-test.yml@main
     with:
       java-version: ${{ vars.JAVA_VERSION }}

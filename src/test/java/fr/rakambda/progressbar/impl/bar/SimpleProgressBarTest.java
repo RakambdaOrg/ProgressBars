@@ -47,6 +47,30 @@ class SimpleProgressBarTest extends BaseProgressBarTest<SimpleProgressBar>{
 	}
 	
 	@Test
+	void increment(){
+		var tested = getProgressBar();
+		tested.setEnd(100);
+		tested.setStart(10);
+		tested.setCurrent(50);
+		
+		tested.increment();
+		
+		assertThat(tested.getCurrent()).isEqualTo(51);
+	}
+	
+	@Test
+	void incrementCustom(){
+		var tested = getProgressBar();
+		tested.setEnd(100);
+		tested.setStart(10);
+		tested.setCurrent(50);
+		
+		tested.increment(5);
+		
+		assertThat(tested.getCurrent()).isEqualTo(55);
+	}
+	
+	@Test
 	void settingCurrentAfterEndModifiesEnd(){
 		var tested = getProgressBar();
 		tested.setEnd(50);
