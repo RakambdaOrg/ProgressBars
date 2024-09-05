@@ -1,0 +1,19 @@
+changelog:
+  exclude:
+    labels:
+      - "type: 📚 dependencies"
+      - "type: 🐛 dev bug"
+      - "sync"
+  categories:
+    - title: "🚀 Features"
+      labels:
+        - "type: 🧱 enhancement"
+    - title: "🐛 Fixes"
+      labels:
+        - "type: 🐛 bug"
+    - title: "⚙️ Internal"
+      labels:
+        - "type: ⚙️ internal enhancement"
+    - title: Other Changes
+      labels:
+        - "*"
