@@ -18,4 +18,5 @@ jobs:
     secrets:
       codecov-token: ${{ secrets.CODECOV_TOKEN }}
     permissions:
+      contents: write
       checks: write
