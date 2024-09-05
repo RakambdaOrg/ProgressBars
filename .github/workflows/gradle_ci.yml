@@ -1,0 +1,21 @@
+name: Build & Test
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    uses: RakambdaOrg/rakambda-github-workflows/.github/workflows/gradle-build-test.yml@main
+    with:
+      java-version: ${{ vars.JAVA_VERSION }}
+      artifact-name: Gradle-Libs
+      generate-jacoco: true
+      send-codecov: true
+    secrets:
+      codecov-token: ${{ secrets.CODECOV_TOKEN }}
+    permissions:
+      checks: write
