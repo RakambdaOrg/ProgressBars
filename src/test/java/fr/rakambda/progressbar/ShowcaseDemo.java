@@ -5,11 +5,14 @@ import fr.rakambda.progressbar.impl.bar.ComposedProgressBar;
 import fr.rakambda.progressbar.impl.bar.CumulativeProgressBar;
 import fr.rakambda.progressbar.impl.bar.SimpleProgressBar;
 import fr.rakambda.progressbar.impl.holder.ProgressBarHolder;
+import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class Main{
-	public static void main(String[] args) throws Exception{
+@SuppressWarnings("NewClassNamingConvention")
+class ShowcaseDemo {
+	@Test
+	void run() throws Exception{
 		try(var holder = ProgressBarHolder.builder().build()){
 			var composedBar = holder.addProgressBar(CumulativeProgressBar.builder()
 					.name("group-task-1")
@@ -26,6 +29,7 @@ public class Main{
 						.name("test-" + i)
 						.end(new AtomicLong(100))
 						.hideWhenComplete(true)
+						.description("desc")
 						.unit("ut")
 						.build()));
 			}

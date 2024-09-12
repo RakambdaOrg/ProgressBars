@@ -68,10 +68,12 @@ tasks {
     }
 }
 
-tasks.register<JavaExec>("rrun") {
-    classpath = sourceSets.main.get().runtimeClasspath
-    mainClass = "fr.rakambda.progressbar.Main"
-    mainModule = "fr.rakambda.progressbar"
+tasks.register<Test>("demo") {
+    useJUnitPlatform()
+    group = "demo"
+    filter {
+        includeTestsMatching("fr.rakambda.progressbar.ShowcaseDemo.run")
+    }
 }
 
 java {

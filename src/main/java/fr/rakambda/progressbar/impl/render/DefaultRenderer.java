@@ -49,7 +49,7 @@ public class DefaultRenderer implements IRenderer{
 			prefix.append(' ');
 		}
 		if(bar.isShowPercentage()){
-			prefix.append("%d%%".formatted((int) (progress * 100)));
+			prefix.append("%3d%%".formatted((int) (progress * 100)));
 			prefix.append(' ');
 		}
 		
