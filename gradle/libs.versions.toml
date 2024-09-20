@@ -9,7 +9,7 @@ assertj-db-version = "2.0.2"
 mockito-version = "5.13.0"
 lombok-version = "1.18.34"
 jacocoVersion = "0.8.12"
-jline-version = "3.26.3"
+jline-version = "3.27.0"
 
 shadow-version = "8.1.1"
 git-version-plugin-version = "3.1.0"
