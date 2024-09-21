@@ -14,4 +14,7 @@ public interface IComposedProgressBar extends IProgressBar{
 	 */
 	@NotNull
 	Collection<IProgressBar> getChildren();
+	
+	@NotNull
+	<V extends IProgressBar> V addProgressBar(@NotNull V progressBar);
 }

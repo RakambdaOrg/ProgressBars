@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * Progress bar where the start/current/end represent the number of added/finished children.
  */
 @ToString
-public class ComposedProgressBar extends BaseProgressBar implements IComposedProgressBar{
+public class ComposedProgressBar extends BaseProgressBar implements IComposedProgressBar {
 	@ToString.Exclude
 	private Collection<IProgressBar> children;
 	
