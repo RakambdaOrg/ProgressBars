@@ -38,9 +38,10 @@ public class ComposedProgressBar extends BaseProgressBar implements IComposedPro
 			boolean removeWhenComplete,
 			boolean showPercentage,
 			@Nullable String unit,
+			@Nullable Long unitFactor,
 			@Nullable String description
 	){
-		super(renderer, name, hideWhenComplete, removeWhenComplete, showPercentage, unit, description);
+		super(renderer, name, hideWhenComplete, removeWhenComplete, showPercentage, unit, unitFactor, description);
 		
 		this.children = new ConcurrentLinkedQueue<>();
 	}

@@ -173,6 +173,22 @@ public interface IProgressBar{
 	void setUnit(String value);
 	
 	/**
+	 * Gets the unit factor associated to this bar.
+	 * For example, if the bar has a value of 100 and a unit factor of 20, then 5 will be displayed.
+	 *
+	 * @return The unit factor.
+	 */
+	long getUnitFactor();
+	
+	/**
+	 * Sets the unit factor associated to this bar.
+	 * For example, if the bar has a value of 100 and a unit factor of 20, then 5 will be displayed.
+	 *
+	 * @param value The unit factor.
+	 */
+	void setUnitFactor(long value);
+	
+	/**
 	 * Gets the description associated to this bar.
 	 *
 	 * @return The description.

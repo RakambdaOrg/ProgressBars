@@ -59,9 +59,10 @@ public class SimpleProgressBar extends BaseProgressBar implements IProgressBar{
 			boolean removeWhenComplete,
 			boolean showPercentage,
 			@Nullable String unit,
+			@Nullable Long unitFactor,
 			@Nullable String description
 	){
-		super(renderer, name, hideWhenComplete, removeWhenComplete, showPercentage, unit, description);
+		super(renderer, name, hideWhenComplete, removeWhenComplete, showPercentage, unit, unitFactor, description);
 		
 		start = Optional.ofNullable(start).orElse(new AtomicLong());
 		current = Optional.ofNullable(current).orElse(new AtomicLong());

@@ -54,9 +54,9 @@ public class DefaultRenderer implements IRenderer{
 		}
 		
 		suffix.append(' ');
-		suffix.append(elapsed);
+		suffix.append(elapsed / bar.getUnitFactor());
 		suffix.append('/');
-		suffix.append(totalSteps);
+		suffix.append(totalSteps / bar.getUnitFactor());
 		if(Objects.nonNull(bar.getUnit())){
 			suffix.append(bar.getUnit());
 		}
