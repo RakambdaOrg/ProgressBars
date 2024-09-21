@@ -90,6 +90,15 @@ public interface IProgressBar{
 	}
 	
 	/**
+	 * Increments the current value by {@code amount}.
+	 *
+	 * @param amount The amount to increment
+	 */
+	default void increment(long amount){
+		setCurrent(getCurrent() + amount);
+	}
+	
+	/**
 	 * Indicates if the bar is considered finished or not.
 	 *
 	 * @return true if {@code current >= end}, otherwise false
