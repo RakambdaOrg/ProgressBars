@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
+import java.util.function.LongBinaryOperator;
 
 /**
  * Simple progress bar where values are updated manually.
@@ -108,6 +109,14 @@ public class SimpleProgressBar extends BaseProgressBar implements IProgressBar{
 	@Override
 	public long getCurrent(){
 		return current.get();
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void accumulate(long value, @NotNull LongBinaryOperator operator){
+		current.accumulateAndGet(value, operator);
 	}
 	
 	/**

@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.function.LongBinaryOperator;
 
 /**
  * Progress bar where the start/current/end values are the sum of the children's.
@@ -77,6 +78,14 @@ public class CumulativeProgressBar extends BaseProgressBar implements IComposedP
 	 */
 	@Override
 	public void setCurrent(long value) throws UnsupportedOperationException{
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * @throws UnsupportedOperationException Not supported for this type of bar
+	 */
+	@Override
+	public void accumulate(long value, @NotNull LongBinaryOperator operator){
 		throw new UnsupportedOperationException();
 	}
 	

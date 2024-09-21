@@ -3,6 +3,7 @@ package fr.rakambda.progressbar.api.bar;
 import fr.rakambda.progressbar.api.render.IRenderer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import java.util.function.LongBinaryOperator;
 
 /**
  * Defines the core elements of a progress bar.
@@ -60,6 +61,14 @@ public interface IProgressBar{
 	void setCurrent(long value);
 	
 	/**
+	 * Accumulates a value to the current value.
+	 *
+	 * @param value    The value to accumulate
+	 * @param operator The operation to apply between the current value and the value to accumulate
+	 */
+	void accumulate(long value, @NotNull LongBinaryOperator operator);
+	
+	/**
 	 * Gets the end value associated to this bar.
 	 *
 	 * @return The end value.
@@ -86,7 +95,7 @@ public interface IProgressBar{
 	 * @param amount The amount to increment
 	 */
 	default void increment(int amount){
-		setCurrent(getCurrent() + amount);
+		increment((long) amount);
 	}
 	
 	/**
@@ -95,7 +104,7 @@ public interface IProgressBar{
 	 * @param amount The amount to increment
 	 */
 	default void increment(long amount){
-		setCurrent(getCurrent() + amount);
+		accumulate(amount, Long::sum);
 	}
 	
 	/**

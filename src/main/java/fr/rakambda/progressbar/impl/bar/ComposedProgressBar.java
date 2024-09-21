@@ -9,12 +9,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.function.LongBinaryOperator;
 
 /**
  * Progress bar where the start/current/end represent the number of added/finished children.
  */
 @ToString
-public class ComposedProgressBar extends BaseProgressBar implements IComposedProgressBar {
+public class ComposedProgressBar extends BaseProgressBar implements IComposedProgressBar{
 	@ToString.Exclude
 	private Collection<IProgressBar> children;
 	
@@ -75,6 +76,14 @@ public class ComposedProgressBar extends BaseProgressBar implements IComposedPro
 	 */
 	@Override
 	public void setCurrent(long value) throws UnsupportedOperationException{
+		throw new UnsupportedOperationException();
+	}
+	
+	/**
+	 * @throws UnsupportedOperationException Not supported for this type of bar
+	 */
+	@Override
+	public void accumulate(long value, @NotNull LongBinaryOperator operator){
 		throw new UnsupportedOperationException();
 	}
 	
