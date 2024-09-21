@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    uses: RakambdaOrg/rakambda-github-workflows/.github/workflows/gradle-puslish.yml@main
+    uses: RakambdaOrg/rakambda-github-workflows/.github/workflows/gradle-publish.yml@main
     with:
       java-version: ${{ vars.JAVA_VERSION }}
     permissions:
