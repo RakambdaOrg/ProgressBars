@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+    implementation(platform(libs.log4j2Bom))
+    
     api(libs.slf4j)
     implementation(libs.bundles.log4j2)
 
