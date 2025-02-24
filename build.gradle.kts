@@ -25,8 +25,9 @@ dependencies {
 
     annotationProcessor(libs.lombok)
 
+    implementation(platform(libs.junitBom))
     testImplementation(libs.bundles.junit)
-    testRuntimeOnly(libs.junitEngine)
+    testRuntimeOnly(libs.junitPlatformLauncher)
 
     testImplementation(libs.bundles.assertj)
     testImplementation(libs.bundles.mockito)
