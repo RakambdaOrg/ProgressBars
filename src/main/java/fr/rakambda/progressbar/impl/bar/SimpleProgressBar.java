@@ -4,8 +4,8 @@ import fr.rakambda.progressbar.api.bar.IProgressBar;
 import fr.rakambda.progressbar.api.render.IRenderer;
 import lombok.Builder;
 import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.LongBinaryOperator;
@@ -27,11 +27,11 @@ import java.util.function.LongBinaryOperator;
  */
 @ToString
 public class SimpleProgressBar extends BaseProgressBar implements IProgressBar{
-	@NotNull
+	@NonNull
 	private AtomicLong start;
-	@NotNull
+	@NonNull
 	private AtomicLong current;
-	@NotNull
+	@NonNull
 	private AtomicLong end;
 	
 	/**
@@ -116,7 +116,7 @@ public class SimpleProgressBar extends BaseProgressBar implements IProgressBar{
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void accumulate(long value, @NotNull LongBinaryOperator operator){
+	public void accumulate(long value, @NonNull LongBinaryOperator operator){
 		current.accumulateAndGet(value, operator);
 	}
 	

@@ -1,7 +1,7 @@
 [versions]
 slf4j-version = "2.0.17"
 log4j2-version = "2.25.1"
-jetbrains-annotations-version = "26.0.2"
+jspecify-version = "1.0.0"
 junitVersion = "5.13.4"
 assertj-core-version = "3.27.4"
 mockito-version = "5.19.0"
@@ -15,7 +15,7 @@ slf4j = { group = "org.slf4j", name = "slf4j-api", version.ref = "slf4j-version"
 log4j2Bom = { group = "org.apache.logging.log4j", name = "log4j-bom", version.ref = "log4j2-version"}
 log4j2-core = { group = "org.apache.logging.log4j", name = "log4j-core" }
 log4j2-slf4j = { group = "org.apache.logging.log4j", name = "log4j-slf4j2-impl" }
-jetbrainsAnnotations = { group = "org.jetbrains", name = "annotations", version.ref = "jetbrains-annotations-version" }
+jSpecify = { group = "org.jspecify", name = "jspecify", version.ref = "jspecify-version" }
 lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok-version" }
 jline = { group = "org.jline", name = "jline-terminal", version.ref = "jline-version" }
 

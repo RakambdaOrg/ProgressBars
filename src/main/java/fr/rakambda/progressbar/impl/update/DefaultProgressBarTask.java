@@ -5,8 +5,8 @@ import fr.rakambda.progressbar.api.bar.IProgressBar;
 import fr.rakambda.progressbar.api.update.IProgressBarTask;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 import java.io.IOException;
@@ -30,10 +30,10 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	private static final char NEW_LINE = '\n';
 	private static final char ESCAPE_CHAR = '\u001b';
 	
-	@NotNull
+	@NonNull
 	private final PrintStream out;
 	
-	@NotNull
+	@NonNull
 	private final Queue<IProgressBar> progressBars = new ConcurrentLinkedQueue<>();
 	
 	private long previousLineCount = 0;
@@ -82,7 +82,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @return The number of non-hidden bars
 	 */
-	private int countNonHiddenBars(@NotNull Collection<IProgressBar> progressBars){
+	private int countNonHiddenBars(@NonNull Collection<IProgressBar> progressBars){
 		return progressBars.stream().mapToInt(this::countNonHiddenBars).sum();
 	}
 	
@@ -93,7 +93,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @return The number of non-hidden bars
 	 */
-	private int countNonHiddenBars(@NotNull IProgressBar progressBar){
+	private int countNonHiddenBars(@NonNull IProgressBar progressBar){
 		var count = progressBar.isHideWhenComplete() && progressBar.isFinished() ? 0 : 1;
 		if(progressBar instanceof IComposedProgressBar composedProgressBar){
 			count += countNonHiddenBars(composedProgressBar.getChildren());
@@ -106,7 +106,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @param progressBars The bars to potentially remove.
 	 */
-	private void removeCompletedBars(@NotNull Collection<IProgressBar> progressBars){
+	private void removeCompletedBars(@NonNull Collection<IProgressBar> progressBars){
 		progressBars.removeIf(this::removeCompletedBar);
 	}
 	
@@ -114,7 +114,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 * Removes this progress bar if completed and {@link IProgressBar#isRemoveWhenComplete()} is true.
 	 * This also iterates over the children.
 	 */
-	private boolean removeCompletedBar(@NotNull IProgressBar progressBar){
+	private boolean removeCompletedBar(@NonNull IProgressBar progressBar){
 		if(progressBar instanceof IComposedProgressBar composedProgressBar){
 			removeCompletedBars(composedProgressBar.getChildren());
 		}
@@ -129,7 +129,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 * @param maxLineWidth  The maximum width of the line
 	 * @param progressBars  The bars to print
 	 */
-	private void printBars(@NotNull StringBuilder stringBuilder, int currentDepth, int maxLineWidth, @NotNull Collection<IProgressBar> progressBars){
+	private void printBars(@NonNull StringBuilder stringBuilder, int currentDepth, int maxLineWidth, @NonNull Collection<IProgressBar> progressBars){
 		var iterator = progressBars.iterator();
 		
 		while(iterator.hasNext()){
@@ -159,7 +159,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	/**
 	 * @return String sequence to clear the whole terminal
 	 */
-	@NotNull
+	@NonNull
 	private String clearConsole(){
 		return ESCAPE_CHAR + "[2J" + ESCAPE_CHAR + "[H" + CARRIAGE_RETURN;
 	}
@@ -167,7 +167,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	/**
 	 * @return String sequence to clear the current line
 	 */
-	@NotNull
+	@NonNull
 	private String eraseLine(){
 		return ESCAPE_CHAR + "[2K";
 	}
@@ -177,7 +177,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @return String sequence to move the cursor up {@code upCount} lines
 	 */
-	@NotNull
+	@NonNull
 	private String cursorUp(long upCount){
 		return ESCAPE_CHAR + "[" + upCount + "F";
 	}
@@ -187,7 +187,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @param progressBar The bar to add
 	 */
-	public void addProgressBar(@NotNull IProgressBar progressBar){
+	public void addProgressBar(@NonNull IProgressBar progressBar){
 		progressBars.add(progressBar);
 	}
 	
@@ -196,7 +196,7 @@ public class DefaultProgressBarTask implements IProgressBarTask<IProgressBar>{
 	 *
 	 * @param progressBar The bar to remove
 	 */
-	public void removeProgressBar(@NotNull IProgressBar progressBar){
+	public void removeProgressBar(@NonNull IProgressBar progressBar){
 		progressBars.remove(progressBar);
 	}
 	

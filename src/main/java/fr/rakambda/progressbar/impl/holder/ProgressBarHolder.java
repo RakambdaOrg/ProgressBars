@@ -4,8 +4,8 @@ import fr.rakambda.progressbar.api.bar.IProgressBar;
 import fr.rakambda.progressbar.api.update.IProgressBarTask;
 import fr.rakambda.progressbar.impl.update.DefaultProgressBarTask;
 import lombok.Builder;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -20,11 +20,11 @@ import java.util.concurrent.TimeUnit;
  * Bars will be added into this container with {@link #addProgressBar(IProgressBar)} in order for them to be displayed.
  */
 public class ProgressBarHolder implements AutoCloseable{
-	@NotNull
+	@NonNull
 	private final ScheduledExecutorService executorService;
-	@NotNull
+	@NonNull
 	private final IProgressBarTask<IProgressBar> progressBarTask;
-	@NotNull
+	@NonNull
 	private final ScheduledFuture<?> progressBarTaskFuture;
 	
 	/**
@@ -49,7 +49,7 @@ public class ProgressBarHolder implements AutoCloseable{
 		this.progressBarTaskFuture = executorService.scheduleWithFixedDelay(progressBarTask, 0, refreshRate, TimeUnit.MILLISECONDS);
 	}
 	
-	@NotNull
+	@NonNull
 	private ScheduledExecutorService buildDefaultExecutor(){
 		return Executors.newScheduledThreadPool(1, runnable -> {
 			var thread = Executors.defaultThreadFactory().newThread(runnable);
@@ -64,8 +64,8 @@ public class ProgressBarHolder implements AutoCloseable{
 	 *
 	 * @param progressBar The bar to add
 	 */
-	@NotNull
-	public <V extends IProgressBar> V addProgressBar(@NotNull V progressBar){
+	@NonNull
+	public <V extends IProgressBar> V addProgressBar(@NonNull V progressBar){
 		this.progressBarTask.addProgressBar(progressBar);
 		return progressBar;
 	}
@@ -75,7 +75,7 @@ public class ProgressBarHolder implements AutoCloseable{
 	 *
 	 * @param progressBar The bar to remove
 	 */
-	public void removeProgressBar(@NotNull IProgressBar progressBar){
+	public void removeProgressBar(@NonNull IProgressBar progressBar){
 		this.progressBarTask.removeProgressBar(progressBar);
 	}
 	

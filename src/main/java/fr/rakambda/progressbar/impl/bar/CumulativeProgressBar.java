@@ -5,8 +5,8 @@ import fr.rakambda.progressbar.api.bar.IProgressBar;
 import fr.rakambda.progressbar.api.render.IRenderer;
 import lombok.Builder;
 import lombok.ToString;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.function.LongBinaryOperator;
@@ -86,7 +86,7 @@ public class CumulativeProgressBar extends BaseProgressBar implements IComposedP
 	 * @throws UnsupportedOperationException Not supported for this type of bar
 	 */
 	@Override
-	public void accumulate(long value, @NotNull LongBinaryOperator operator){
+	public void accumulate(long value, @NonNull LongBinaryOperator operator){
 		throw new UnsupportedOperationException();
 	}
 	
@@ -112,7 +112,7 @@ public class CumulativeProgressBar extends BaseProgressBar implements IComposedP
 	 * {@inheritDoc}
 	 */
 	@Override
-	@NotNull
+	@NonNull
 	public Collection<IProgressBar> getChildren(){
 		return children;
 	}
@@ -120,8 +120,8 @@ public class CumulativeProgressBar extends BaseProgressBar implements IComposedP
 	/**
 	 * {@inheritDoc}
 	 */
-	@NotNull
-	public <T extends IProgressBar> T addProgressBar(@NotNull T progressBar){
+	@NonNull
+	public <T extends IProgressBar> T addProgressBar(@NonNull T progressBar){
 		children.add(progressBar);
 		return progressBar;
 	}

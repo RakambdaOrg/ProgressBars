@@ -2,7 +2,7 @@ package fr.rakambda.progressbar.impl.render;
 
 import fr.rakambda.progressbar.api.bar.IProgressBar;
 import fr.rakambda.progressbar.api.render.IRenderer;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.util.Objects;
 
 /**
@@ -28,9 +28,9 @@ public class DefaultRenderer implements IRenderer{
 	/**
 	 * {@inheritDoc}
 	 */
-	@NotNull
+	@NonNull
 	@Override
-	public String render(int maxLength, @NotNull IProgressBar bar){
+	public String render(int maxLength, @NonNull IProgressBar bar){
 		var prefix = new StringBuilder(maxLength);
 		var middlePart = new StringBuilder(maxLength);
 		var suffix = new StringBuilder(maxLength);
@@ -79,7 +79,7 @@ public class DefaultRenderer implements IRenderer{
 	 * @param progress   The percentage (from 0 to 1) the bar has progressed
 	 * @param barLength  The bar's length
 	 */
-	private void printBar(@NotNull StringBuilder out, long totalSteps, float progress, int barLength){
+	private void printBar(@NonNull StringBuilder out, long totalSteps, float progress, int barLength){
 		if(barLength <= 0){
 			return;
 		}

@@ -1,6 +1,6 @@
 open module fr.rakambda.progressbar {
 	requires static lombok;
-	requires static org.jetbrains.annotations;
+	requires static org.jspecify;
 	
 	requires org.jline.terminal;
 	requires org.slf4j;

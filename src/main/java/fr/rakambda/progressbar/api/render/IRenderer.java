@@ -1,7 +1,7 @@
 package fr.rakambda.progressbar.api.render;
 
 import fr.rakambda.progressbar.api.bar.IProgressBar;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Renders a progress bar, not minding about indentation and other things of that kind.
@@ -16,6 +16,6 @@ public interface IRenderer{
 	 *
 	 * @return The bar's render
 	 */
-	@NotNull
-	String render(int maxLength, @NotNull IProgressBar bar);
+	@NonNull
+	String render(int maxLength, @NonNull IProgressBar bar);
 }

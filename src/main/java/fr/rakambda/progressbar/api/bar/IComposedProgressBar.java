@@ -1,6 +1,6 @@
 package fr.rakambda.progressbar.api.bar;
 
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 import java.util.Collection;
 
 /**
@@ -12,9 +12,9 @@ public interface IComposedProgressBar extends IProgressBar{
 	 *
 	 * @return The children
 	 */
-	@NotNull
+	@NonNull
 	Collection<IProgressBar> getChildren();
 	
-	@NotNull
-	<V extends IProgressBar> V addProgressBar(@NotNull V progressBar);
+	@NonNull
+	<V extends IProgressBar> V addProgressBar(@NonNull V progressBar);
 }

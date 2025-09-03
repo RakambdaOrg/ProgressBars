@@ -1,8 +1,8 @@
 package fr.rakambda.progressbar.api.bar;
 
 import fr.rakambda.progressbar.api.render.IRenderer;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import java.util.function.LongBinaryOperator;
 
 /**
@@ -14,7 +14,7 @@ public interface IProgressBar{
 	 *
 	 * @return The renderer.
 	 */
-	@NotNull
+	@NonNull
 	IRenderer getRenderer();
 	
 	/**
@@ -66,7 +66,7 @@ public interface IProgressBar{
 	 * @param value    The value to accumulate
 	 * @param operator The operation to apply between the current value and the value to accumulate
 	 */
-	void accumulate(long value, @NotNull LongBinaryOperator operator);
+	void accumulate(long value, @NonNull LongBinaryOperator operator);
 	
 	/**
 	 * Gets the end value associated to this bar.

@@ -19,8 +19,8 @@ dependencies {
     implementation(libs.bundles.log4j2)
 
     api(libs.jline)
+    api(libs.jSpecify)
 
-    compileOnly(libs.jetbrainsAnnotations)
     compileOnly(libs.lombok)
 
     annotationProcessor(libs.lombok)

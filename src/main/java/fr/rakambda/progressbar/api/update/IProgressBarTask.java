@@ -1,7 +1,7 @@
 package fr.rakambda.progressbar.api.update;
 
 import fr.rakambda.progressbar.api.bar.IProgressBar;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NonNull;
 
 /**
  * This task is responsible for displaying a group of progress bars.
@@ -13,12 +13,12 @@ public interface IProgressBarTask<T extends IProgressBar> extends Runnable, Auto
 	 *
 	 * @param progressBar The bar to add
 	 */
-	void addProgressBar(@NotNull T progressBar);
+	void addProgressBar(@NonNull T progressBar);
 	
 	/**
 	 * Removes a bar to this holder.
 	 *
 	 * @param progressBar The bar to remove
 	 */
-	void removeProgressBar(@NotNull T progressBar);
+	void removeProgressBar(@NonNull T progressBar);
 }

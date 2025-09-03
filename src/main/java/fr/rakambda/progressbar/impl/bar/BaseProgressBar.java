@@ -4,8 +4,8 @@ import fr.rakambda.progressbar.api.render.IRenderer;
 import fr.rakambda.progressbar.impl.render.DefaultRenderer;
 import lombok.Getter;
 import lombok.Setter;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NonNull;
+import org.jspecify.annotations.Nullable;
 import java.util.Optional;
 
 /**
@@ -13,7 +13,7 @@ import java.util.Optional;
  */
 @Getter
 abstract class BaseProgressBar{
-	@NotNull
+	@NonNull
 	private IRenderer renderer;
 	@Nullable
 	@Setter
