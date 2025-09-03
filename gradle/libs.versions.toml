@@ -1,7 +1,7 @@
 [versions]
 slf4j-version = "2.0.17"
 log4j2-version = "2.25.1"
-jetbrains-annotations-version = "26.0.2"
+jetbrains-annotations-version = "26.0.2-1"
 junitVersion = "5.13.4"
 assertj-core-version = "3.27.4"
 mockito-version = "5.19.0"
