@@ -5,7 +5,7 @@ jspecify-version = "1.0.0"
 junitVersion = "5.13.4"
 assertj-core-version = "3.27.4"
 mockito-version = "5.19.0"
-lombok-version = "1.18.40"
+lombok-version = "1.18.42"
 jacocoVersion = "0.8.12"
 jline-version = "3.30.6"
 
