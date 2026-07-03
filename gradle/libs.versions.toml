@@ -1,6 +1,6 @@
 [versions]
 slf4j-version = "2.0.18"
-log4j2-version = "2.26.0"
+log4j2-version = "2.26.1"
 jspecify-version = "1.0.0"
 junitVersion = "6.1.1"
 assertj-core-version = "3.27.7"
